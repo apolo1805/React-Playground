@@ -2,6 +2,7 @@ import Button from './Button'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import './App.css'
+import Home from './Home'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         </nav>
 
         <Routes>
+          <Route path="/home" element={<Home />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
         </Routes>

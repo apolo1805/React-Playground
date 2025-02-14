@@ -2,11 +2,13 @@ import InputText from './InputText'
 import './SignUp.css'
 import Button from './Button'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
   const [nameValue, setName] = useState('')
   const [usernameValue, setUsername] = useState('')
   const [passwordValue, setPassword] = useState('')
+  const navigate = useNavigate();
 
   const signClick = (event: any) => {
     event.preventDefault();
@@ -26,6 +28,7 @@ function SignUp() {
       };
       const guid = crypto.randomUUID();
       localStorage.setItem(guid, JSON.stringify(user));
+      navigate('/SignIn');
     }
   };
 

@@ -2,12 +2,16 @@ import './SignIn.css'
 import InputText from './InputText'
 import Button from './Button'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const signInClicked = () => {
+    const signInClicked = (e: any) => {
+        e.preventDefault();
+
         if (username === '' || password === '') {
             alert("Please enter user name and password, in order to sign in.");
         } 
@@ -20,6 +24,7 @@ function SignIn() {
                     
                         if (userJson.username === username && userJson.password === password) {
                             alert("Sign in successful!");
+                            navigate('/home');
                             return;
                         }
                     }
