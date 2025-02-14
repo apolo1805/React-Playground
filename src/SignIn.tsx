@@ -39,12 +39,14 @@ function SignIn() {
 
     return (
         <>
-            <div>
+            <div className="container">
+            <form>
                 <h2>Sign In</h2>
 
                 <InputText id="username" name="username" label="User Name" changeValue={updateUsername} />
                 <InputText id="password" name="password" label="Password" changeValue={updatePassword} />
                 <Button caption="Sign In" onClick={signInClicked} />
+            </form> 
              </div>
         </>
     )

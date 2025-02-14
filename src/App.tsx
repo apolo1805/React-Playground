@@ -1,12 +1,25 @@
+import Button from './Button'
+import SignIn from './SignIn'
 import SignUp from './SignUp'
 import './App.css'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 function App() {
 
   return (
     <>
-      <h1>React Playground Project</h1>
-      <SignUp />
+      <Router>
+        <h1>React Playground Project</h1>
+        <nav>
+          <Link to="/SignUp"><Button caption="Sign Up" onClick={() => {}} /></Link>
+          <Link to="/SignIn"><Button caption="Sign In" onClick={() => {}} /></Link>
+        </nav>
+
+        <Routes>
+          <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/SignUp" element={<SignUp />} />
+        </Routes>
+      </Router>
     </>
   )
 }

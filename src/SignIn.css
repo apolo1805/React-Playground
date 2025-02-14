@@ -1,3 +1,18 @@
 h2 {
     color:dimgrey;
 }
+
+form {
+    margin: 8rem auto;
+  }
+  
+  .form-title {
+    color:dimgrey;
+    margin: 2rem 0;
+  }
+  
+  button {
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+    font-size: 1.1rem;
+  }
