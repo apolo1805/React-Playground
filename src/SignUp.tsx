@@ -4,9 +4,9 @@ import Button from './Button'
 import { useState } from 'react'
 
 function SignUp() {
-  const [nameValue, setNameValue] = useState('')
-  const [usernameValue, setUsernameValue] = useState('')
-  const [passwordValue, setPasswordValue] = useState('')
+  const [nameValue, setName] = useState('')
+  const [usernameValue, setUsername] = useState('')
+  const [passwordValue, setPassword] = useState('')
 
   const signClick = (event: any) => {
     event.preventDefault();
@@ -16,11 +16,30 @@ function SignUp() {
     }
     else {
       alert("New user was created!");
-      setNameValue('');
-      setUsernameValue('');
-      setPasswordValue('');
+      setName('');
+      setUsername('');
+      setPassword('');
+      const user = {
+        name: nameValue,
+        username: usernameValue,
+        password: passwordValue
+      };
+      const guid = crypto.randomUUID();
+      localStorage.setItem(guid, JSON.stringify(user));
     }
   };
+
+  const updateName = (e: any) => {
+    setName(e);
+  }
+
+  const updateUsername = (e: any) => {
+    setUsername(e);
+  }
+
+  const updatePassword = (e: any) => {
+    setPassword(e);
+  }
 
   return (
     <>
@@ -28,9 +47,9 @@ function SignUp() {
         <form>
           <h2 className="form-title">Sign Up Form</h2>
           
-          <InputText label="Full Name" value={nameValue} />
-          <InputText label="User Name" value={usernameValue} />
-          <InputText label="Password" value={passwordValue} />
+          <InputText label="Full Name" value={nameValue} changeValue={updateName} />
+          <InputText label="User Name" value={usernameValue} changeValue={updateUsername} />
+          <InputText label="Password" value={passwordValue} changeValue={updatePassword} />
           <Button caption="Sign Up" onClick={signClick} />
         </form>
       </div>

@@ -3,7 +3,7 @@ import { useState } from 'react';
 function InputText(props: any) {
     const [inputValue, setInputValue] = useState('')
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
       setInputValue(e.target.value);
       props.changeValue(e.target.value);
     };

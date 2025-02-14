@@ -12,7 +12,20 @@ function SignIn() {
             alert("Please enter user name and password, in order to sign in.");
         } 
         else {
-            alert("Signing in with user name: " + username + " and password: " + password);
+            for(let key in localStorage) {
+                if (localStorage.hasOwnProperty(key)) {
+                    var user = localStorage.getItem(key);
+                    if (user != null) {
+                        var userJson = JSON.parse(user);
+                    
+                        if (userJson.username === username && userJson.password === password) {
+                            alert("Sign in successful!");
+                            return;
+                        }
+                    }
+                }
+            }
+            alert("Signing in with user name: " + username + " and password: " + password + " failed.");
         }
     }
 
