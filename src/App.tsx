@@ -1,4 +1,4 @@
-import SignUp from './SignUp'
+import SignIn from './SignIn'
 import './App.css'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1>React Playground Project</h1>
-      <SignUp />
+      <SignIn />
     </>
   )
 }

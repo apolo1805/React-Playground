@@ -31,7 +31,7 @@ function SignUp() {
           <InputText label="Full Name" value={nameValue} />
           <InputText label="User Name" value={usernameValue} />
           <InputText label="Password" value={passwordValue} />
-          <Button onClick={signClick} />
+          <Button caption="Sign Up" onClick={signClick} />
         </form>
       </div>
     </>
